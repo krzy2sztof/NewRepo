@@ -1,3 +1,4 @@
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Calc_3 extends Patterns {
@@ -9,10 +10,11 @@ public class Calc_3 extends Patterns {
         double a, b;
         int c;
 
-       do {
-           System.out.println("first 'double'");
+       while(true){
+           try{
+           System.out.println("enter first value");
            a = scanner.nextDouble();
-           System.out.println("next 'double'");
+           System.out.println("enter second value");
            b = scanner.nextDouble();
            System.out.println("1-add\n2-substract\n3-multiply\n4-divide\n5-exit");
            c = scanner.nextInt();
@@ -34,11 +36,14 @@ public class Calc_3 extends Patterns {
                    x.divide(a, b);
                }
                case 5 -> {
-                   System.exit(0);
+                   System.exit(007);
                    scanner.close();
                }
+           } }catch (InputMismatchException e){
+               System.out.println("This is not a number!");
+               scanner.next();
            }
-       }while(true);
+       }
 
 
 
